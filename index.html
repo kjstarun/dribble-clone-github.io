@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .header-container {
+            width: 100%;
+            height: 80px;
+            background-color: #fff;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .left-header {
+            width: 60%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .right-header {
+            width: 22%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .search-logo {
+            width: 20px;
+        }
+
+        .header-logo {
+            width: 100px;
+            height: 50px;
+        }
+
+        .header-logo:hover {
+            cursor: pointer;
+            opacity: 0.6;
+        }
+
+        .drop-button {
+            border: none;
+            background: none;
+            color: grey;
+            opacity: 1;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 20px 0;
+        }
+
+        .drop-button:hover {
+            cursor: pointer;
+            color: black;
+        }
+
+        .signin-link {
+            text-decoration: none;
+            color: grey;
+            opacity: 1;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .share-link {
+            text-decoration: none;
+            border-radius: 8px;
+            background-color: #EA4C89;
+            color: #fff;
+            height: 20px;
+            padding: 10px 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .share-link:hover {
+            opacity: 0.7;
+        }
+
+        .top-container {
+            height: 100%;
+            width: 100%;
+            /* margin-top: 100%; */
+            /* padding-top: 5px; */
+            background-color: rgba(0, 0, 0, 0.268);
+            position: absolute;
+            /* top: 0; */
+            bottom: 20;
+            /* background-color: transparent; */
+            /* z-index: 10; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        /* .video-container{
+            margin-top: 100%;
+        } */
+
+        .video {
+            position: absolute;
+            height: 600px;
+            object-fit: cover;
+            width: 100%;
+            opacity: 1;
+            /* z-index: 0; */
+        }
+
+        .menu-bar-container {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .menu {
+            text-decoration: none;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.648);
+            border-radius: 50px;
+            padding: 15px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .menu:hover {
+            background-color: #fff;
+            color: black;
+        }
+
+        .content-container {
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .content-one {
+            font-size: 35px;
+            font-weight: bolder;
+            max-width: 500px;
+            text-align: center;
+            line-height: 1.25;
+        }
+
+        .content-two {
+            font-size: 16px;
+            font-weight: 500;
+            max-width: 600px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .search-bar-container {
+            max-width: 800px;
+        }
+
+        .search {
+            min-width: 550px;
+            padding: 20px 40px;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+        }
+
+        ::placeholder {
+            color: gray;
+            opacity: 1;
+        }
+
+        .trendy-search-container {
+            color: #fff;
+            width: 700px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .trend-search {
+            text-decoration: none;
+            color: #fff;
+            background-color: transparent;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.632);
+            padding: 5px 10px;
+            font-weight: lighter;
+            font-size: 15px;
+        }
+
+        .trend-search:hover {
+            border: 1px solid rgb(255, 255, 255);
+        }
+
+        /* dropdown */
+
+        .drop-down {
+            float: left;
+            overflow: hidden;
+        }
+
+        .drop-content {
+            position: absolute;
+            width: 400px;
+            background-color: #fff;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 6px 0px 23px -5px rgba(0, 0, 0, 0.48);
+            display: none;
+        }
+
+        .drop-down:hover .drop-content {
+            display: flex;
+        }
+
+        .drop-links {
+            text-decoration: none;
+            padding: 15px 20px;
+        }
+
+        .list-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            line-height: 1.5;
+        }
+
+        .list-head {
+            color: black;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        h3::first-letter {
+            font-size: 17px;
+        }
+
+        .list-description {
+            color: gray;
+            font-weight: lighter;
+            font-size: 12px;
+            max-width: 250px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            opacity: 1;
+        }
+
+
+        /* Right bottom link */
+
+        .right-bottom-link-container {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            position: absolute;
+            right: 24px;
+            bottom: 24px;
+        }
+
+        .right-bottom-link {
+            opacity: 0.7;
+            transition: all 0.2s ease-in-out;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .right-bottom-link:hover {
+            opacity: 1;
+        }
+
+        .footer-container {
+            padding: 20px 40px;
+            height: 100%;
+            margin-top: 50%;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            margin: 50% auto 0 auto;
+        }
+
+        .right-foot-main-container {
+            /* background-color: rgba(0, 0, 255, 0.225); */
+            min-width: 80%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .ul-list a{
+            text-decoration: none;
+            color: #3D3D4E;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .ul-list a:hover{
+            opacity: 1;
+        }
+
+        .ul-list{
+            max-height: 500px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+
+        .item {
+            box-sizing: border-box;
+            padding: 0;
+            /* margin-bottom: 20px; */
+            display: inline-flex;
+            width: 25%;
+            padding-right: 12px;
+            vertical-align: baseline;
+            line-height: 2.5;
+        }
+
+        .head{
+            color: #0D0C22;
+            font-weight: 600;
+        }
+
+        .left-footer-main-container{
+            /* background-color: aqua; */
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="viewport">
+        <header class="header-container">
+            <div class="left-header">
+                <img src="https://www.vectorlogo.zone/logos/dribbble/dribbble-ar21.svg" class="header-logo">
+                <div class="drop-down">
+                    <button class="drop-button">Inspiration</button>
+                    <div class="drop-content">
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Explore Design work</h3>
+                                <h4 class="list-description">Trending designs to inspire you</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">New & Noteworthy</h3>
+                                <h4 class="list-description">Up-and-coming designers</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Playoffs</h3>
+                                <h4 class="list-description">Work designers are riffing on</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Blog</h3>
+                                <h4 class="list-description">Interviews, tutorials, and more</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Weekly Warm-up</h3>
+                                <h4 class="list-description">Prompt to flex ypur design skills</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="drop-down">
+                    <button class="drop-button">Find Work</button>
+                    <div class="drop-content">
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Job Board</h3>
+                                <h4 class="list-description">Find your dream design job</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Freelance Projects</h3>
+                                <h4 class="list-description">An exclusive list for contract work</h4>
+                            </div>
+                        </a>
+                        <hr>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Want freelance design projects?</h3>
+                                <h4 class="list-description">Get new leads in your inbox every day</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Personolize your profile with video </h3>
+                                <h4 class="list-description">Introduce yourself to new clients with Pitch</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="drop-down">
+                    <button class="drop-button">Learn Design</button>
+                    <div class="drop-content">
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Certified product design course</h3>
+                                <h4 class="list-description">Learn product deisgn in just 16 weeks</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Introduction to UI Design</h3>
+                                <h4 class="list-description">Learn UI Design Basics and Figma</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Browse our courses & workshops</h3>
+                                <h4 class="list-description">Level up your skills with our interactive courses and
+                                    workshops</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="drop-down">
+                    <button class="drop-button">Go Pro</button>
+                    <div class="drop-content">
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">For Designers</h3>
+                                <h4 class="list-description">Portfolio creation made easy</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">For Freelancers</h3>
+                                <h4 class="list-description">Fresh leads in ypur inbox everyday</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">For Teams</h3>
+                                <h4 class="list-description">Build your team's pipeline or profile</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="drop-down">
+                    <button class="drop-button">Design Files</button>
+                    <div class="drop-content">
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Discover</h3>
+                                <h4 class="list-description">A market place of digital assets</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Graphics</h3>
+                                <h4 class="list-description">Icons, Illustrations, Patterns, Textures</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Fonts</h3>
+                                <h4 class="list-description">Display, Script, Sans Serif, Serif</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Templates</h3>
+                                <h4 class="list-description">Mock Ups, Social Media, Presentations</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">3D</h3>
+                                <h4 class="list-description">Characters, Objects, Textures</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Themes</h3>
+                                <h4 class="list-description">WordPress, Shopify, Bootstrap, HTML5</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Add-Ons</h3>
+                                <h4 class="list-description">Procreate, Affinity, Photoshop, InDesign</h4>
+                            </div>
+                        </a>
+                        <hr>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Open a Shop</h3>
+                                <h4 class="list-description">Earn money doing what you love</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="drop-down">
+                    <button class="drop-button">Hire Designers</button>
+                    <div class="drop-content">
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Designer Search</h3>
+                                <h4 class="list-description">Find, Contact, and hire designers</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">List my Job Opening</h3>
+                                <h4 class="list-description">The #1 job board for creatives</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Post a Freelance Project</h3>
+                                <h4 class="list-description">Board for freelance & contract work</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="right-header">
+                <a href="" class="search-link"><img src="./icons8-search.svg" class="search-logo"></a>
+                <a href="" class="signin-link">Sign in</a>
+                <a href="" class="share-link">Share my work</a>
+            </div>
+        </header>
+        <div class="video-container" class="video-container">
+            <video autoplay muted loop class="video">
+                <source
+                    src="https://cdn.dribbble.com/uploads/39421/original/963b4f8739cbdf86ca3f3a23245efd18.mp4?1657824985">
+            </video>
+        </div>
+        <div class="top-container">
+            <div class="menu-bar-container">
+                <a href="" class="menu">Discover</a>
+                <a href="" class="menu">Animation</a>
+                <a href="" class="menu">Branding</a>
+                <a href="" class="menu">Illustration</a>
+                <a href="" class="menu">Mobile</a>
+                <a href="" class="menu">Print</a>
+                <a href="" class="menu">Product Design</a>
+                <a href="" class="menu">Typography</a>
+                <a href="" class="menu">Web Design</a>
+            </div>
+            <div class="content-container">
+                <h1 class="content-one">
+                    Explore world's leading design portfolios
+                </h1>
+                <h4 class="content-two">
+                    Millions of designers and agencies around the world showcase their portfolio
+                    work on Dribbble - the home to the world's best design and creative professionals.
+                </h4>
+            </div>
+            <div class="search-bar-container">
+                <input type="search" placeholder="Search.." class="search">
+            </div>
+            <div class="trendy-search-container">
+                <p class="trend-head">Trending searches</p>
+                <a href="" class="trend-search">landing page</a>
+                <a href="" class="trend-search">ios</a>
+                <a href="" class="trend-search">food</a>
+                <a href="" class="trend-search">landingpage</a>
+                <a href="" class="trend-search">uxdesign</a>
+                <a href="" class="trend-search">app design</a>
+            </div>
+            <div class="right-bottom-link-container">
+                <a href="" class="right-bottom-link">@yumekon</a>
+            </div>
+        </div>
+        <div class="slides-container"></div>
+        <footer class="footer-container">
+            <div class="left-footer-main-container">
+
+            </div>
+            <div class="right-foot-main-container">
+                
+                    <ul class="ul-list">
+                        <li class="item head">For Designers</li>
+                        <li class="item content"><a href="#">Go Pro</a></li>
+                        <li class="item content"><a href="#">Explore design work</a></li>
+                        <li class="item content"><a href="#">Design blog</a></li>
+                        <li class="item content"><a href="#">Overtime podcast</a></li>
+                        <li class="item content"><a href="#">Playoffs</a></li>
+                        <li class="item content"><a href="#">Weekly Warm-Up</a></li>
+                        <li class="item content"><a href="#">Code of conduct</a></li>
+
+                        <li class="item head">Hire Designers</li>
+                        <li class="item content"><a href="#">Post a job opening</a></li>
+                        <li class="item content"><a href="#">Post a freelance project</a></li>
+                        <li class="item content"><a href="#">Search for designers</a></li>
+
+                        <li class="item head">Brand</li>
+                        <li class="item content"><a href="#">Advertise with us</a></li>
+
+                        <li class="item head">Company</li>
+                        <li class="item content"><a href="#">About</a></li>
+                        <li class="item content"><a href="#">Careers</a></li>
+                        <li class="item content"><a href="#">Support</a></li>
+                        <li class="item content"><a href="#">Media kit</a></li>
+                        <li class="item content"><a href="#">Testimonials</a></li>
+                        <li class="item content"><a href="#">API</a></li>
+                        <li class="item content"><a href="#">Terms of service</a></li>
+                        <li class="item content"><a href="#">Privacy policy</a></li>
+                        <li class="item content"><a href="#">Cookies policy</a></li>
+
+                        <li class="item head">Directories</li>
+                        <li class="item content"><a href="#">Design jobs</a></li>
+                        <li class="item content"><a href="#">Designers for hire</a></li>
+                        <li class="item content"><a href="#">Freelance designers for hire</a></li>
+                        <li class="item content"><a href="#">Tags</a></li>
+                        <li class="item content"><a href="#">Places</a></li>
+
+                        <li class="item head">Design assets</li>
+                        <li class="item content"><a href="#">Creative Market</a></li>
+                        <li class="item content"><a href="#">Fontspring</a></li>
+                        <li class="item content"><a href="#">Font Squirrel</a></li>
+
+                        <li class="item head">Design Resources</li>
+                        <li class="item content"><a href="#">Freelancing</a></li>
+                        <li class="item content"><a href="#">Design Hiring</a></li>
+                        <li class="item content"><a href="#">Design Portfolio</a></li>
+                        <li class="item content"><a href="#">Design Education</a></li>
+                        <li class="item content"><a href="#">Creative Process</a></li>
+                        <li class="item content"><a href="#">Design Industry Trends</a></li>
+
+                    </ul>
+
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
