@@ -58,6 +58,7 @@
             font-weight: 600;
             font-size: 14px;
             padding: 20px 0;
+            letter-spacing: 0.5px;
         }
 
         .drop-button:hover {
@@ -106,6 +107,7 @@
             justify-content: center;
             align-items: center;
             gap: 30px;
+            /* padding-top: 15%; */
         }
 
         /* .video-container{
@@ -138,6 +140,7 @@
             padding: 15px;
             font-weight: 600;
             font-size: 15px;
+            min-width: fit-content;
         }
 
         .menu:hover {
@@ -221,7 +224,7 @@
 
         .drop-down {
             float: left;
-            overflow: hidden;
+            /* overflow: hidden; */
         }
 
         .drop-content {
@@ -400,7 +403,7 @@
         .sidenav {
             height: 0;
             width: 0;
-            position: fixed;
+            position: absolute;
             z-index: 1;
             top: 0;
             left: 0;
@@ -480,7 +483,7 @@
 
 
         @media screen and (max-width:920px) {
-            .header-container{
+            .header-container {
                 display: none;
             }
 
@@ -488,7 +491,7 @@
                 display: block;
             }
 
-            .top-container{
+            .top-container {
                 height: 100vh;
             }
 
@@ -500,6 +503,7 @@
                 width: 100%;
                 box-shadow: none;
                 overflow-y: auto;
+                position: static;
             }
 
             .sidenav {
@@ -507,17 +511,16 @@
                 align-items: flex-start;
             }
 
-            ::-webkit-scrollbar {
-                color: transparent;
-                width: 1px;
+            .content-two {
+                max-width: 400px;
             }
 
-            .content-two{
-                max-width: 200px;
-            }
-
-            .menu-bar-container{
+            .menu-bar-container {
                 gap: 10px;
+            }
+
+            .content-container {
+                gap: 0;
             }
         }
 
@@ -529,7 +532,29 @@
             .sidenav {
                 display: none;
             }
+        }
 
+        @media screen and (max-width:392px) {
+            .content-two {
+                max-width: 200px;
+            }
+
+            .video {
+                height: 100vh;
+            }
+
+            .menu-bar-container {
+                display: none;
+            }
+        }
+
+        /* @media screen and (max-width:308px) {
+          
+        } */
+
+        ::-webkit-scrollbar {
+            color: transparent;
+            width: 1px;
         }
     </style>
 </head>
@@ -863,7 +888,7 @@
         <div class="video-container" class="video-container">
             <video autoplay muted loop class="video">
                 <source
-                    src="https://cdn.dribbble.com/uploads/39421/original/963b4f8739cbdf86ca3f3a23245efd18.mp4?1657824985">
+                    src="https://cdn.dribbble.com/uploads/39417/original/49dbf46eae15d227fc95a69cee31251e.mp4?1657824906">
             </video>
         </div>
         <div class="top-container">
@@ -967,7 +992,7 @@
 
     <script>
         function openNav() {
-            document.getElementById("mySidenav").style.height = "1000px";
+            document.getElementById("mySidenav").style.height = "100vh";
             document.getElementById("mySidenav").style.width = "100%";
             document.getElementById("mySidenav").style.padding = "10px 0 100px 50px";
             document.getElementById("open").style.display = "none";
