@@ -196,10 +196,10 @@
 
         .trendy-search-container {
             color: #fff;
-            width: 100%;
+            width: 60%;
             display: flex;
             flex-direction: row;
-            justify-content: space-evenly;
+            justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             margin-bottom: 100px;
@@ -471,6 +471,7 @@
             opacity: 1;
             font-weight: 500;
             font-size: 15px;
+            min-width: fit-content;
             /* margin-right: -50px; */
         }
 
@@ -517,10 +518,15 @@
 
             .menu-bar-container {
                 gap: 10px;
+                justify-content:unset;
             }
 
             .content-container {
                 gap: 0;
+            }
+
+            .trendy-search-container{
+                width: 100%;
             }
         }
 
