@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="viewport">
+        <div class="responsive-header">
+            <div class="header-outer">
+                <div class="hamburger-menu-container">
+                    <span class="hamburger-menu" id="open" style="font-size:30px;cursor:pointer"
+                        onclick="openNav()">&#9776;</span>
+                    <span>
+                        <a href="javascript:void(0)" class="closebtn" id="close" onclick="closeNav()">&times;</a>
+                    </span>
+                </div>
+                <div class="res-main-logo">
+                    <img src="https://www.vectorlogo.zone/logos/dribbble/dribbble-ar21.svg" class="res-head-logo">
+                </div>
+                <a href="#" class="res-signin-header">Sign in</a>
+            </div>
+        </div>
+        <div id="mySidenav" class="sidenav">
+            <details class="drop-down" onclick="display('drop1')">
+                <summary class="drop-button">Inspiration</summary>
+                <div class="drop-content" id="drop1">
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Explore Design work</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">New & Noteworthy</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Playoffs</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Blog</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Weekly Warm-up</h3>
+                    </a>
+                </div>
+            </details>
+            <details class="drop-down" onclick="display('drop2')">
+                <summary class="drop-button">Find Work</summary>
+                <div class="drop-content" id="drop2">
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Job Board</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Freelance Projects</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Want freelance design projects?</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Personolize your profile with video </h3>
+                    </a>
+                </div>
+            </details>
+            <details class="drop-down" onclick="display('drop3')">
+                <summary class="drop-button">Learn Design</summary>
+                <div class="drop-content" id="drop3">
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Certified product design course</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Introduction to UI Design</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Browse our courses & workshops</h3>
+                    </a>
+                </div>
+            </details>
+            <details class="drop-down" onclick="display('drop4')">
+                <summary class="drop-button">Go Pro</summary>
+                <div class="drop-content" id="drop4">
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">For Designers</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">For Freelancers</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">For Teams</h3>
+                    </a>
+                </div>
+            </details>
+            <details class="drop-down" onclick="display('drop5')">
+                <summary class="drop-button">Design Files</summary>
+                <div class="drop-content" id="drop5">
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Discover</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Graphics</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Fonts</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Templates</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">3D</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Themes</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Add-Ons</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Open a Shop</h3>
+                    </a>
+                </div>
+            </details>
+            <details class="drop-down" onclick="display('drop6')">
+                <summary class="drop-button">Hire Designers</summary>
+                <div class="drop-content" id="drop6">
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Designer Search</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">List my Job Opening</h3>
+                    </a>
+                    <a href="" class="drop-links">
+                        <h3 class="list-head">Post a Freelance Project</h3>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <header class="header-container">
+            <div class="left-header">
+                <img src="https://www.vectorlogo.zone/logos/dribbble/dribbble-ar21.svg" class="header-logo">
+                <div class="drop-down">
+                    <button class="drop-button">Inspiration</button>
+                    <div class="drop-content">
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Explore Design work</h3>
+                                <h4 class="list-description">Trending designs to inspire you</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">New & Noteworthy</h3>
+                                <h4 class="list-description">Up-and-coming designers</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Playoffs</h3>
+                                <h4 class="list-description">Work designers are riffing on</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Blog</h3>
+                                <h4 class="list-description">Interviews, tutorials, and more</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Weekly Warm-up</h3>
+                                <h4 class="list-description">Prompt to flex ypur design skills</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="drop-down">
+                    <button class="drop-button">Find Work</button>
+                    <div class="drop-content">
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Job Board</h3>
+                                <h4 class="list-description">Find your dream design job</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Freelance Projects</h3>
+                                <h4 class="list-description">An exclusive list for contract work</h4>
+                            </div>
+                        </a>
+                        <hr>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Want freelance design projects?</h3>
+                                <h4 class="list-description">Get new leads in your inbox every day</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Personolize your profile with video </h3>
+                                <h4 class="list-description">Introduce yourself to new clients with Pitch</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="drop-down">
+                    <button class="drop-button">Learn Design</button>
+                    <div class="drop-content">
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Certified product design course</h3>
+                                <h4 class="list-description">Learn product deisgn in just 16 weeks</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Introduction to UI Design</h3>
+                                <h4 class="list-description">Learn UI Design Basics and Figma</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Browse our courses & workshops</h3>
+                                <h4 class="list-description">Level up your skills with our interactive courses and
+                                    workshops</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="drop-down">
+                    <button class="drop-button">Go Pro</button>
+                    <div class="drop-content">
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">For Designers</h3>
+                                <h4 class="list-description">Portfolio creation made easy</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">For Freelancers</h3>
+                                <h4 class="list-description">Fresh leads in ypur inbox everyday</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">For Teams</h3>
+                                <h4 class="list-description">Build your team's pipeline or profile</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="drop-down">
+                    <button class="drop-button">Design Files</button>
+                    <div class="drop-content">
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Discover</h3>
+                                <h4 class="list-description">A market place of digital assets</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Graphics</h3>
+                                <h4 class="list-description">Icons, Illustrations, Patterns, Textures</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Fonts</h3>
+                                <h4 class="list-description">Display, Script, Sans Serif, Serif</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Templates</h3>
+                                <h4 class="list-description">Mock Ups, Social Media, Presentations</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">3D</h3>
+                                <h4 class="list-description">Characters, Objects, Textures</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Themes</h3>
+                                <h4 class="list-description">WordPress, Shopify, Bootstrap, HTML5</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Add-Ons</h3>
+                                <h4 class="list-description">Procreate, Affinity, Photoshop, InDesign</h4>
+                            </div>
+                        </a>
+                        <hr>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Open a Shop</h3>
+                                <h4 class="list-description">Earn money doing what you love</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="drop-down">
+                    <button class="drop-button">Hire Designers</button>
+                    <div class="drop-content">
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Designer Search</h3>
+                                <h4 class="list-description">Find, Contact, and hire designers</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">List my Job Opening</h3>
+                                <h4 class="list-description">The #1 job board for creatives</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links">
+                            <div class="list-content">
+                                <h3 class="list-head">Post a Freelance Project</h3>
+                                <h4 class="list-description">Board for freelance & contract work</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="right-header">
+                <a href="" class="search-link"><img src="./icons8-search.svg" class="search-logo"></a>
+                <a href="" class="signin-link">Sign in</a>
+                <a href="" class="share-link">Share my work</a>
+            </div>
+        </header>
+        <div class="video-container" class="video-container">
+            <video autoplay muted loop class="video">
+                <source
+                    src="https://cdn.dribbble.com/uploads/39417/original/49dbf46eae15d227fc95a69cee31251e.mp4?1657824906">
+            </video>
+        </div>
+        <div class="top-container">
+            <div class="menu-bar-container">
+                <a href="" class="menu">Discover</a>
+                <a href="" class="menu">Animation</a>
+                <a href="" class="menu">Branding</a>
+                <a href="" class="menu">Illustration</a>
+                <a href="" class="menu">Mobile</a>
+                <a href="" class="menu">Print</a>
+                <a href="" class="menu">Product Design</a>
+                <a href="" class="menu">Typography</a>
+                <a href="" class="menu">Web Design</a>
+            </div>
+            <div class="content-container">
+                <h1 class="content-one">
+                    Explore world's leading design portfolios
+                </h1>
+                <h4 class="content-two">
+                    Millions of designers and agencies around the world showcase their portfolio
+                    work on Dribbble - the home to the world's best design and creative professionals.
+                </h4>
+            </div>
+            <div class="search-bar-container">
+                <input type="search" placeholder="Search.." class="search">
+            </div>
+            <div class="trendy-search-container">
+                <p class="trend-head">Trending searches</p>
+                <a href="" class="trend-search">landing page</a>
+                <a href="" class="trend-search">ios</a>
+                <a href="" class="trend-search">food</a>
+                <a href="" class="trend-search">landingpage</a>
+                <a href="" class="trend-search">uxdesign</a>
+                <a href="" class="trend-search">app design</a>
+            </div>
+            <!-- <div class="right-bottom-link-container">
+                <a href="" class="right-bottom-link">@yumekon</a>
+            </div> -->
+        </div>
+        <div class="filter-container">
+            <div class="left-filter">
+                <div class="drop-down-filter-one">
+                    <button class="drop-button-filter-one">Popular</button>
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" role="img"
+                        class="icon btn-dropdown-caret">
+                        <path
+                            d="M21.5265 8.77171C22.1578 8.13764 22.1578 7.10962 21.5265 6.47555C20.8951 5.84148 19.8714 5.84148 19.24 6.47555L11.9999 13.7465L4.75996 6.47573C4.12858 5.84166 3.10492 5.84166 2.47354 6.47573C1.84215 7.10979 1.84215 8.13782 2.47354 8.77188L10.8332 17.1671C10.8408 17.1751 10.8486 17.183 10.8565 17.1909C11.0636 17.399 11.313 17.5388 11.577 17.6103C11.5834 17.6121 11.5899 17.6138 11.5964 17.6154C12.132 17.7536 12.7242 17.6122 13.1435 17.1911C13.1539 17.1807 13.1641 17.1702 13.1742 17.1596L21.5265 8.77171Z">
+                        </path>
+                    </svg> -->
+                    <div class="drop-content-filter-one">
+                        <a href="" class="drop-links-filter-one">
+                            <div class="list-content-filter-one">
+                                <h4 class="list-description-filter-one">Popular</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links-filter-one">
+                            <div class="list-content-filter-one">
+                                <h4 class="list-description-filter-one">New &amp; Noteworthy</h4>
+                            </div>
+                        </a>
+                        <a href="" class="drop-links-filter-one">
+                            <div class="list-content-filter-one">
+                                <h4 class="list-description-filter-one">Marketplace</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="right-filter">
+                <a href="#">
+                    <span class="label" title="Filters">Filters</span>
+                </a>
+            </div>
+        </div>
+        <div class="slides-container">
+            <div class="parent-container">
+                <div class="image-container">
+                    <img src="" alt="">
+                </div>
+                <div class="details-container">
+                    <div class="name-container"></div>
+                    <div class="reach-container">
+                        <div class="like-container">
+                            <img src="" alt="">
+                            <span>150</span>
+                        </div>
+                        <div class="views-container">
+                            <img src="" alt="">
+                            <span>15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <footer class="footer-container">
+            <div class="left-footer-main-container">
+
+            </div>
+            <div class="right-foot-main-container">
+
+                <ul class="ul-list">
+                    <li class="item head">For Designers</li>
+                    <li class="item content"><a href="#">Go Pro</a></li>
+                    <li class="item content"><a href="#">Explore design work</a></li>
+                    <li class="item content"><a href="#">Design blog</a></li>
+                    <li class="item content"><a href="#">Overtime podcast</a></li>
+                    <li class="item content"><a href="#">Playoffs</a></li>
+                    <li class="item content"><a href="#">Weekly Warm-Up</a></li>
+                    <li class="item content"><a href="#">Code of conduct</a></li>
+
+                    <li class="item head">Hire Designers</li>
+                    <li class="item content"><a href="#">Post a job opening</a></li>
+                    <li class="item content"><a href="#">Post a freelance project</a></li>
+                    <li class="item content"><a href="#">Search for designers</a></li>
+
+                    <li class="item head">Brand</li>
+                    <li class="item content"><a href="#">Advertise with us</a></li>
+
+                    <li class="item head">Company</li>
+                    <li class="item content"><a href="#">About</a></li>
+                    <li class="item content"><a href="#">Careers</a></li>
+                    <li class="item content"><a href="#">Support</a></li>
+                    <li class="item content"><a href="#">Media kit</a></li>
+                    <li class="item content"><a href="#">Testimonials</a></li>
+                    <li class="item content"><a href="#">API</a></li>
+                    <li class="item content"><a href="#">Terms of service</a></li>
+                    <li class="item content"><a href="#">Privacy policy</a></li>
+                    <li class="item content"><a href="#">Cookies policy</a></li>
+
+                    <li class="item head">Directories</li>
+                    <li class="item content"><a href="#">Design jobs</a></li>
+                    <li class="item content"><a href="#">Designers for hire</a></li>
+                    <li class="item content"><a href="#">Freelance designers for hire</a></li>
+                    <li class="item content"><a href="#">Tags</a></li>
+                    <li class="item content"><a href="#">Places</a></li>
+
+                    <li class="item head">Design assets</li>
+                    <li class="item content"><a href="#">Creative Market</a></li>
+                    <li class="item content"><a href="#">Fontspring</a></li>
+                    <li class="item content"><a href="#">Font Squirrel</a></li>
+
+                    <li class="item head">Design Resources</li>
+                    <li class="item content"><a href="#">Freelancing</a></li>
+                    <li class="item content"><a href="#">Design Hiring</a></li>
+                    <li class="item content"><a href="#">Design Portfolio</a></li>
+                    <li class="item content"><a href="#">Design Education</a></li>
+                    <li class="item content"><a href="#">Creative Process</a></li>
+                    <li class="item content"><a href="#">Design Industry Trends</a></li>
+
+                </ul>
+
+            </div>
+        </footer> -->
+    </div>
+</body>
+
+</html>
