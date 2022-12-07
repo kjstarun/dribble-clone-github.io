@@ -28,109 +28,110 @@ const slidesContainer = document.getElementById("slides");
 const fragment = document.createDocumentFragment();
 function renderList(updatedList) {
     console.log("func");
+    slidesContainer.innerHTML = "";
     for (let i of updatedList) {
         //creating parent container 
         const parentContainer = document.createElement("div");
         parentContainer.className = "parent-container";
-    
+
         // creating image contaienr
         const imageContainer = document.createElement('div');
         imageContainer.className = "image-container";
         const image = document.createElement("img");
         image.src = i.imageLink;
-    
+
         // appending image to image container
         imageContainer.appendChild(image);
-    
+
         // creating details container
         const detailsContainer = document.createElement("div");
         detailsContainer.className = "details-container";
-    
+
         // creating name container
         const nameContainer = document.createElement("div");
         nameContainer.className = "name-container";
-    
+
         // creating the logo
         const logoImage = document.createElement("img");
         logoImage.src = "./heart.svg";
-    
+
         // creating image title
         const imageTitle = document.createElement("p");
         imageTitle.id = "title";
         imageTitle.textContent = i.imageName;
-    
+
         // appending the title and images to name container
         nameContainer.appendChild(logoImage);
         nameContainer.appendChild(imageTitle);
-    
+
         // appending name container to details container
         detailsContainer.appendChild(nameContainer);
-    
+
         // creating reach container
         const reachContainer = document.createElement("div");
         reachContainer.className = "reach-container";
-    
+
         // creating like container
         const likeContainer = document.createElement("div");
         likeContainer.className = "like-container";
-    
+
         // svg
         const svgContainer = document.createElement("img");
         svgContainer.src = "./heart.svg";
         svgContainer.className = "svg-cont"
-    
+
         // like count
         const likesCount = document.createElement("span");
         likesCount.innerText = i.likeCount;
-    
+
         likeContainer.appendChild(svgContainer);
         likeContainer.appendChild(likesCount);
-    
+
         // like increasing
         svgContainer.addEventListener("click", function like() {
             // console.log(likesCount);
             i.likeCount++;
             likesCount.innerText = i.likeCount;
         });
-    
+
         // creating views container
         const viewContainer = document.createElement("div");
         viewContainer.className = "views-container";
-    
+
         // creating image
         const viewImage = document.createElement("img");
         viewImage.src = "./view-svgrepo-com.svg";
         viewImage.height = "20";
-    
+
         // view count
         const viewCount = document.createElement("span");
         viewCount.innerText = i.viewsCount;
-    
+
         // view count updating
         imageContainer.addEventListener("click", function like() {
             // console.log(likesCount);
             i.viewsCount++;
             viewCount.innerText = i.viewsCount;
         });
-    
+
         // appending to parent view
         viewContainer.appendChild(viewImage);
         viewContainer.appendChild(viewCount);
-    
+
         // appending to reach
         reachContainer.appendChild(likeContainer);
         reachContainer.appendChild(viewContainer);
-    
+
         // appendig to details
         detailsContainer.appendChild(reachContainer);
-    
+
         // appending to parent
         parentContainer.appendChild(imageContainer);
         parentContainer.appendChild(detailsContainer);
-    
+
         // appending to slides
         fragment.appendChild(parentContainer);
-    
+
     }
     slidesContainer.appendChild(fragment);
 }
