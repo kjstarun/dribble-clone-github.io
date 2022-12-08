@@ -673,8 +673,46 @@
         gap: 5px;
     }
 
-    .svg-cont:hover{
+    .svg-cont:hover {
         fill: red;
+    }
+
+    .no-result {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .na-image-container {
+        height: 300px;
+        width: 100%;
+    }
+
+    .na-image {
+        height: 200px;
+        width: 100%;
+    }
+
+    .no-result h3,
+    .no-result p {
+        max-width: 600px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .no-result h3 {
+        margin-bottom: 10px;
+        color: #0d0c22;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .no-result p {
+        margin-bottom: 20px;
+        padding: 0 20px;
+        color: #6e6d7a;
+        font-size: 14px;
+        line-height: 1.5;
     }
 
     @media screen and (max-width:920px) {

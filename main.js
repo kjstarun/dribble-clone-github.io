@@ -4,21 +4,24 @@ const listSet = [
         imageName: "Tarun",
         likeCount: 0,
         viewsCount: 0,
-        category: "Birthday"
+        category: "Birthday",
+        color: "Red"
     },
     {
         imageLink: "./NoYclA.webp",
         imageName: "Hareesh",
         likeCount: 0,
         viewsCount: 0,
-        category: "Anniversary"
+        category: "Anniversary",
+        color:"Pink"
     },
     {
         imageLink: "./pikrepo.jpg",
         imageName: "Ashwary",
         likeCount: 0,
         viewsCount: 0,
-        category: "Wedding"
+        category: "Wedding",
+        color:"White"
     }
 ]
 
@@ -134,16 +137,49 @@ function renderList(updatedList) {
 
     }
     slidesContainer.appendChild(fragment);
+    // console.log(slidesContainer);
 }
 
 renderList(listSet);
 
+function renderNoData() {
+    const noFragment = document.createDocumentFragment();
+    console.log("nodata")
+    slidesContainer.innerHTML = "";
+
+    const noResultContainer = document.createElement("div");
+    noResultContainer.className = "no-result";
+
+    const naImageContainer = document.createElement("div");
+    naImageContainer.className = "na-image-container";
+    
+    const naImage = document.createElement("img");
+    naImage.className = "na-image"
+    naImage.src = "https://cdn.dribbble.com/assets/art-banners/record-d05a64c16f564e98f34e41aec5ec07d5b12eb7ea8fb3a1bb0b12250b558de93b.png";
+
+    naImageContainer.appendChild(naImage);
+
+    const noResultText = document.createElement("h3");
+    noResultText.textContent = "No Results found";
+
+    const noResultTextReason = document.createElement("p");
+    noResultTextReason.textContent = "It seems we can't find any results based on your search.";
+
+    noResultContainer.appendChild(naImageContainer);
+    noResultContainer.appendChild(noResultText);
+    noResultContainer.appendChild(noResultTextReason);
+
+    console.log("no result",noResultContainer); 
+    noFragment.appendChild(noResultContainer);
+    slidesContainer.appendChild(noFragment);
+    console.log(slidesContainer);
+}
 
 function triggerEnter(e) {
     if (e.code === "Enter") {
         console.log(e.target.value);
         filterList(e.target.value);
-    }
+    }   
 }
 
 function filterList(tag) {
@@ -153,7 +189,11 @@ function filterList(tag) {
         if (data.category === tag) {
             return data;
         }
-    })
+    });
+    console.log("W", filterData)
+    if (filterData.length === 0) {
+        renderNoData();
+    }
     renderList(filterData);
 }
 
