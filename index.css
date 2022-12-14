@@ -715,6 +715,15 @@
         line-height: 1.5;
     }
 
+    select {
+        background-color: #f3f3f4;
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        color: black;
+        outline: none;
+    }
+
     @media screen and (max-width:920px) {
         .header-container {
             display: none;

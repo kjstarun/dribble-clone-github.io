@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./index.css">
+    <!-- <script src="./colorFilter.js"></script> -->
 </head>
 
 <body>
@@ -420,7 +421,14 @@
             </div>
             <div>
                 <label for="color">Color</label>
-                <input type="text" name="search-color" id="color-filter">
+                <div style="width:250px;">
+                    <select id="select-color" onchange="colorFilterList(value)">
+                        <option value="0"></option>
+                        <option value="1">Black</option>
+                        <option value="2">Pink</option>
+                        <option value="3">White</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <label for="timeframe">TimeFrame</label>
