@@ -360,6 +360,19 @@
         width: 20%;
     }
 
+    .footer{
+        margin: 30px 70px;
+        padding-top: 20px;
+        border-top: 1px solid black;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footer .shots-container{
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+    }
 
     .responsive-header {
         /* background-color: #f0015d; */
