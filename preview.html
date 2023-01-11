@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./card.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100%;
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: aliceblue;
+            background-color: #000;
+        }
+
+        .vp {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 0;
+            width: 75%;
+            margin-top: 50px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 50px;
+        }
+
+        #card-container {
+            margin: auto;
+            width: 90%;
+            max-height: 40%;
+            border: 1px solid grey;
+        }
+
+        h2,
+        h3 {
+            color: darkred;
+            font-family: 'Petit Formal Script', cursive;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 30px;
+        }
+
+        h3 {
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            padding-left: 10px;
+        }
+
+        #card-container {
+            background-color: white;
+            /* height: auto; */
+            width: 100%;
+            color: black;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .text-container {
+            /* background-color: blue; */
+            padding: 40px 10px 20px 10px;
+            /* min-height: 200px; */
+            max-height: 400px;
+            width: 40%;
+            max-width: 50%;
+            word-wrap: break-word;
+            line-height: 30px;
+        }
+
+        #card-title {
+            margin-bottom: 20px;
+        }
+
+        #card-from {
+            float: right;
+            padding-right: 10px;
+        }
+
+        img {
+            height: 420px;
+            /* min-width: 40%; */
+            width: 100%;
+            margin: 0;
+            float: right;
+            object-fit: cover;
+        }
+
+        #card-image {
+            /* background-color: aqua; */
+            /* min-width: 40%; */
+            width: 95%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="vp">
+        <div id="card-container">
+            <div class="text-container">
+                <h2 id="card-title">ABCDEF</h2>
+                <p id="card-msg">Lorum Ipsum and a Happy New Year! We would like to
+                    thank our entire community for their support this year. We enjoyed all
+                    the challenged and achievements 2017 brought our way and we're looking
+                    forward to what 2018 will bring.<br><br>May your holidays be filled with
+                    code and cocoa!</p>
+                <h3 id="card-from">Greetings</h3>
+            </div>
+            <div class="column">
+                <img id="card-image" />
+                <div id="snow"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <script>
+        const data = window.location.search;
+        const param = new URLSearchParams(data);
+
+        const template = param.get("template");
+        let image = document.getElementById("card-image")
+        image.src = template;
+
+        let cardContainer = document.getElementById('card-container');
+        let cardImage = document.getElementById('card-image');
+        let cardTitle = document.getElementById('card-title');
+        let cardMsg = document.getElementById('card-msg');
+        let cardFrom = document.getElementById('card-from');
+        let occassion = document.getElementById("occassion");
+
+        let formTitle = document.getElementById('title');
+        let formFrom = document.getElementById('from');
+        let formMsg = document.getElementById('msg');
+        let formImage = document.getElementById('image');
+
+        let fontColor = document.getElementById("card-text-color");
+        let saveButton = document.getElementById('save-button');
+
+        let obj = {
+            Birthday: "./realistic-happy-birthday-black-golden_1361-3241.webp",
+            Wedding: "./pikrepo.jpg",
+            Anniversary: "./NoYclA.webp"
+        }
+
+        formTitle.addEventListener('keyup', function (event) {
+            cardTitle.innerText = event.target.value;
+        })
+
+        formFrom.addEventListener('keyup', function (event) {
+            cardFrom.innerText = event.target.value;
+        })
+
+        formMsg.addEventListener('keyup', function (event) {
+            cardMsg.innerText = event.target.value;
+            // cardMsg.color = "blue";
+        })
+
+        occassion.addEventListener('change', function (event) {
+            // console.log(1)
+            let events = document.querySelectorAll('input[name="events"]');
+            for (let i of events) {
+                if (i.checked) {
+                    console.log(i.id);
+                    cardImage.src = obj[i.id];
+                }
+            }
+        });
+
+        fontColor.addEventListener("input", function () {
+            // console.log("color")
+            fontColor = document.getElementById("card-text-color");
+            // console.log(fontColor.value);
+            cardMsg.style.color = fontColor.value;
+        });
+
+        const loadImage = function (event) {
+            cardImage.src = URL.createObjectURL(event.target.files[0]);
+        };
+
+        saveButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            html2canvas(cardContainer, {
+                onrendered: function (canvas) {
+                    let myImage = canvas.toDataURL("image/png");
+                    downloadURI("data:" + myImage, "CustomGreeting.png");
+                }
+            });
+        });
+
+        function downloadURI(uri, name) {
+            let link = document.createElement("a");
+            link.download = name;
+            link.href = uri;
+            link.click();
+        }
+    </script>
+</body>
+
+</html>
