@@ -15,23 +15,33 @@
         }
 
         body {
+            margin: auto;
             width: 100%;
             font-family: 'Lato', sans-serif;
             font-size: 16px;
-            background-repeat: no-repeat;
-            background-size: cover;
+            background-color: black;
+            /* background-image: url("./pexels-felix-mittermeier-956999.jpg"); */
+            /* backdrop-filter: brightness(40%); */
+            /* background-repeat: no-repeat; */
+            /* background-size: cover; */
             color: aliceblue;
-            background-color: #000;
+            /* background-color: rgba(39, 38, 38, 0.8); */
         }
 
         .vp {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            height: auto;
             padding: 50px 0;
             width: 75%;
-            margin-top: 50px;
             margin: auto;
+        }
+
+        input,
+        textarea,
+        button {
+            /* color: gray; */
+            background-color: rgba(42, 42, 42, 0.721);
+            border: none;
+            /* outline: rgb(194, 49, 49); */
         }
 
         h1 {
@@ -46,68 +56,82 @@
             border: 1px solid grey;
         }
 
-        h2,
-        h3 {
-            color: darkred;
-            font-family: 'Petit Formal Script', cursive;
+        .form-container {
+            margin: 25px 40px;
+
         }
 
-        h2 {
-            text-align: center;
-            font-size: 30px;
+        .form-container .column {
+            padding: 10px;
         }
 
-        h3 {
-            font-size: 20px;
+        .form1,
+        .form-container input,
+        textarea,
+        select {
+            max-width: 100%;
+            min-width: 100%;
+            margin: 15px 0;
+
         }
 
-        p {
+        input {
+            height: 25px;
+        }
+
+        button {
+            margin-left: 45%;
+            padding: 10px 30px;
             font-size: 18px;
-            padding-left: 10px;
+            color: white;
         }
 
-        #card-container {
-            background-color: white;
-            /* height: auto; */
-            width: 100%;
-            color: black;
+        button:hover {
+            background-color: darkred;
+            /* color: white; */
+            /* border: white; */
+            opacity: 0.7;
+        }
+
+        textarea {
+            min-height: 100px;
+        }
+
+        input,
+        textarea {
+            padding: 2px 10px;
+            color: white;
+        }
+
+        .radio form {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-evenly;
+            align-items: center;
         }
 
-        .text-container {
-            /* background-color: blue; */
-            padding: 40px 10px 20px 10px;
-            /* min-height: 200px; */
-            max-height: 400px;
-            width: 40%;
-            max-width: 50%;
-            word-wrap: break-word;
-            line-height: 30px;
+        .radio form div {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 5px;
         }
 
-        #card-title {
-            margin-bottom: 20px;
+        input[type="radio"]:hover {
+            cursor: pointer;
         }
 
-        #card-from {
-            float: right;
-            padding-right: 10px;
+        input[type="radio"]:disabled:hover {
+            cursor: not-allowed;
         }
 
-        img {
-            height: 420px;
-            /* min-width: 40%; */
-            width: 100%;
-            margin: 0;
-            float: right;
-            object-fit: cover;
-        }
-
-        #card-image {
+        .custom {
             /* background-color: aqua; */
-            /* min-width: 40%; */
-            width: 95%;
+            display: flex;
+            /* max-width: 100%; */
+            width: 90%;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 25px 0px 60px 50px;
         }
     </style>
 
@@ -115,6 +139,45 @@
 
 <body>
     <div class="vp">
+        <h1>Build Your Own Greeting Card</h1>
+        <div class="radio">
+            <form id="occassion">
+                <div>
+                    <input type="radio" name="events" id="Birthday" checked>
+                    <label for="Birthday">Birthday</label>
+                </div>
+                <div>
+                    <input type="radio" name="events" id="Wedding">
+                    <label for="Wedding">Wedding</label>
+                </div>
+                <div>
+                    <input type="radio" name="events" id="Anniversary">
+                    <label for="Anniversary">Anniversary</label>
+                </div>
+            </form>
+        </div>
+        <div class="form-container">
+            <div class="column">
+                <form class="form1">
+                    <label for="title">Card Title:</label>
+                    <input type="text" id="title" name="title">
+                    <label for="from">From:</label>
+                    <input type="text" id="from" name="from">
+                </form>
+            </div>
+            <div class="column">
+                <form class="form1">
+                    <label for="msg">Message:</label>
+                    <textarea id="msg" name="message"></textarea>
+                </form>
+            </div>
+        </div>
+        <div class="custom">
+            <label for="card-text-color">Card Message Color</label>
+            <input type="color" name="card-color" id="card-text-color">
+            <input type="file" accept="image/*" name="image" id="file" onchange="loadImage(event)" />
+            <button id="save-button">Save Card</button>
+        </div>
         <div id="card-container">
             <div class="text-container">
                 <h2 id="card-title">ABCDEF</h2>
@@ -126,20 +189,19 @@
                 <h3 id="card-from">Greetings</h3>
             </div>
             <div class="column">
-                <img id="card-image" />
+                <img id="card-image" src="./realistic-happy-birthday-black-golden_1361-3241.webp">
                 <div id="snow"></div>
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js" ,></script>
     <script>
-        const data = window.location.search;
-        const param = new URLSearchParams(data);
+        // const data = window.location.search;
+        // const param = new URLSearchParams(data);
 
-        const template = param.get("template");
-        let image = document.getElementById("card-image")
-        image.src = template;
-
+        // const template = param.get("template");
+        // let image = document.getElementById("card-image")
+        // image.src = template;
         let cardContainer = document.getElementById('card-container');
         let cardImage = document.getElementById('card-image');
         let cardTitle = document.getElementById('card-title');

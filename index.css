@@ -661,6 +661,22 @@ select {
   color: white;
 }
 
+#edit-template{
+  width: 120px;
+  text-align: center;
+  border-radius: 25px;
+  border: none;
+  padding: 10px 15px;
+  background-color: #ea4c89;
+  color: white;
+  cursor: pointer;
+  font-weight: lighter;
+}
+
+#edit-template:hover{
+  opacity: 0.7;
+}
+
 @-webkit-keyframes slideIn {
   from {
     bottom: -300px;

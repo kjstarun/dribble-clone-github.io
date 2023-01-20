@@ -34,6 +34,12 @@ const colorSet = {
   3: "White",
 };
 
+// const editPage = (id) => {
+//   // const editPageURL = `./preview.html?id=${id}`;
+//   // window.location = editPageURL;
+//   console.log("called", id);
+// };
+
 const slidesContainer = document.getElementById("slides");
 
 const previewTemplate = (data, i) => {
@@ -48,21 +54,27 @@ const previewTemplate = (data, i) => {
   var btn = document.getElementsByClassName("image-container")[i];
   console.log("btn", btn);
   // btn.onclick = function () {
-    modal.style.display = "block";
+  modal.style.display = "block";
   // };
-
   // When the user clicks on <span> (x), close the modal
   span.onclick = function () {
     modal.style.display = "none";
   };
-
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = "none";
     }
   };
+  const editClick = document.getElementById("edit-template");
+  console.log(editClick);
+  editClick.onclick = function () {
+    const editPageURL = `./preview.html?id=${i}`;
+    window.location = editPageURL;
+    console.log("called");
+  };
 };
+// editClick.onclick = editPage(i);
 
 const fragment = document.createDocumentFragment();
 function renderList(updatedList) {
